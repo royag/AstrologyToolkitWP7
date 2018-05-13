@@ -1,0 +1,457 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>10.0.20506</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}</ProjectGuid>
+    <ProjectTypeGuids>{C089C8C0-30E0-4E22-80C0-CE093F111A43};{fae04ec0-301f-11d3-bf4b-00c04f79efbc}</ProjectTypeGuids>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>AstrologyToolkit</RootNamespace>
+    <AssemblyName>AstrologyToolkit</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <SilverlightVersion>$(TargetFrameworkVersion)</SilverlightVersion>
+    <TargetFrameworkProfile>WindowsPhone</TargetFrameworkProfile>
+    <TargetFrameworkIdentifier>Silverlight</TargetFrameworkIdentifier>
+    <SilverlightApplication>true</SilverlightApplication>
+    <SupportedCultures>
+    </SupportedCultures>
+    <XapOutputs>true</XapOutputs>
+    <GenerateSilverlightManifest>true</GenerateSilverlightManifest>
+    <XapFilename>AstrologyToolkit.xap</XapFilename>
+    <SilverlightManifestTemplate>Properties\AppManifest.xml</SilverlightManifestTemplate>
+    <SilverlightAppEntry>AstrologyToolkit.App</SilverlightAppEntry>
+    <ValidateXaml>true</ValidateXaml>
+    <ThrowErrorsInValidation>true</ThrowErrorsInValidation>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>Bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>Bin\Release</OutputPath>
+    <DefineConstants>TRACE;SILVERLIGHT;WINDOWS_PHONE</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <NoConfig>true</NoConfig>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug Trial|AnyCPU'">
+    <OutputPath>bin\Debug Trial\</OutputPath>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'DebugTrial|AnyCPU'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\DebugTrial\</OutputPath>
+    <DefineConstants>TRACE;DEBUG;SILVERLIGHT;WINDOWS_PHONE;TRIAL</DefineConstants>
+    <NoStdLib>true</NoStdLib>
+    <DebugType>full</DebugType>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisIgnoreBuiltInRuleSets>false</CodeAnalysisIgnoreBuiltInRuleSets>
+    <CodeAnalysisIgnoreBuiltInRules>false</CodeAnalysisIgnoreBuiltInRules>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.Phone" />
+    <Reference Include="Microsoft.Phone.Controls.Toolkit, Version=1.0.0.0, Culture=neutral, PublicKeyToken=b772ad94eb9ca604, processorArchitecture=MSIL" />
+    <Reference Include="Microsoft.Phone.Interop" />
+    <Reference Include="System.Device" />
+    <Reference Include="System.Windows" />
+    <Reference Include="system" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Net" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AboutPage.xaml.cs">
+      <DependentUpon>AboutPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="App.xaml.cs">
+      <DependentUpon>App.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="AspectSelectionPage.xaml.cs">
+      <DependentUpon>AspectSelectionPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="ChartInputDataPage.xaml.cs">
+      <DependentUpon>ChartInputDataPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="GeoPositionSelectorPage.xaml.cs">
+      <DependentUpon>GeoPositionSelectorPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LeapingLightAstrology\TimeZoneDefaults.cs" />
+    <Compile Include="OpenDialog.xaml.cs">
+      <DependentUpon>OpenDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SaveDialog.xaml.cs">
+      <DependentUpon>SaveDialog.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="SettingsPage.xaml.cs">
+      <DependentUpon>SettingsPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="TimezoneSelector.xaml.cs">
+      <DependentUpon>TimezoneSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="PlaceSelector.xaml.cs">
+      <DependentUpon>PlaceSelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="LeapingLightAstrology\AstroDefs.cs" />
+    <Compile Include="LeapingLightAstrology\ChartData.cs" />
+    <Compile Include="LeapingLightAstrology\GeoData.cs" />
+    <Compile Include="LeapingLightAstrology\HouseCalc.cs" />
+    <Compile Include="MainPage.xaml.cs">
+      <DependentUpon>MainPage.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="CountrySelector.xaml.cs">
+      <DependentUpon>CountrySelector.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="LeapingLightAstrology\TZInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ApplicationDefinition Include="App.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </ApplicationDefinition>
+    <Page Include="AboutPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="AspectSelectionPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="ChartInputDataPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="GeoPositionSelectorPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="OpenDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SaveDialog.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SettingsPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="TimezoneSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="PlaceSelector.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="MainPage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="CountrySelector.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="gfx\signs30\col_aquarius.png" />
+    <Resource Include="gfx\signs30\col_aries.png" />
+    <Resource Include="gfx\signs30\col_cancer.png" />
+    <Resource Include="gfx\signs30\col_capricorn.png" />
+    <Resource Include="gfx\signs30\col_gemini.png" />
+    <Resource Include="gfx\signs30\col_leo.png" />
+    <Resource Include="gfx\signs30\col_libra.png" />
+    <Resource Include="gfx\signs30\col_pisces.png" />
+    <Resource Include="gfx\signs30\col_saggitarius.png" />
+    <Resource Include="gfx\signs30\col_scorpio.png" />
+    <Resource Include="gfx\signs30\col_taurus.png" />
+    <Resource Include="gfx\signs30\col_virgo.png" />
+    <Resource Include="gfx\signs30\wt_aquarius.png" />
+    <Resource Include="gfx\signs30\wt_aries.png" />
+    <Resource Include="gfx\signs30\wt_cancer.png" />
+    <Resource Include="gfx\signs30\wt_capricorn.png" />
+    <Resource Include="gfx\signs30\wt_gemini.png" />
+    <Resource Include="gfx\signs30\wt_leo.png" />
+    <Resource Include="gfx\signs30\wt_libra.png" />
+    <Resource Include="gfx\signs30\wt_pisces.png" />
+    <Resource Include="gfx\signs30\wt_saggitarius.png" />
+    <Resource Include="gfx\signs30\wt_scorpio.png" />
+    <Resource Include="gfx\signs30\wt_taurus.png" />
+    <Resource Include="gfx\signs30\wt_virgo.png" />
+    <Resource Include="gfx\planets20w\ascendant.png" />
+    <Resource Include="gfx\planets20w\jupiter.png" />
+    <Resource Include="gfx\planets20w\mars.png" />
+    <Resource Include="gfx\planets20w\mc.png" />
+    <Resource Include="gfx\planets20w\mercury.png" />
+    <Resource Include="gfx\planets20w\moon.png" />
+    <Resource Include="gfx\planets20w\neptune.png" />
+    <Resource Include="gfx\planets20w\node.png" />
+    <Resource Include="gfx\planets20w\pluto.png" />
+    <Resource Include="gfx\planets20w\saturn.png" />
+    <Resource Include="gfx\planets20w\sun.png" />
+    <Resource Include="gfx\planets20w\uranus.png" />
+    <Resource Include="gfx\planets20w\venus.png" />
+    <Resource Include="gfx\moonlogo256.png" />
+    <Content Include="Toolkit.Content\appbar.arrow.down.png" />
+    <Content Include="Toolkit.Content\appbar.book.png" />
+    <Content Include="Toolkit.Content\appbar.delete.png" />
+    <Content Include="Toolkit.Content\appbar.disk.png" />
+    <Content Include="Toolkit.Content\appbar.magnify.png" />
+    <Content Include="Toolkit.Content\appbar.page.edit.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Cancel.png" />
+    <Content Include="Toolkit.Content\ApplicationBar.Check.png" />
+    <Content Include="ef2\1978.ef2" />
+    <Content Include="geodata\geodata.dat" />
+    <Content Include="ef2\2011.ef2" />
+    <Content Include="ef2\1891.ef2" />
+    <Content Include="ef2\1892.ef2" />
+    <Content Include="ef2\1893.ef2" />
+    <Content Include="ef2\1894.ef2" />
+    <Content Include="ef2\1895.ef2" />
+    <Content Include="ef2\1896.ef2" />
+    <Content Include="ef2\1897.ef2" />
+    <Content Include="ef2\1898.ef2" />
+    <Content Include="ef2\1899.ef2" />
+    <Content Include="ef2\1900.ef2" />
+    <Content Include="ef2\1901.ef2" />
+    <Content Include="ef2\1902.ef2" />
+    <Content Include="ef2\1903.ef2" />
+    <Content Include="ef2\1904.ef2" />
+    <Content Include="ef2\1905.ef2" />
+    <Content Include="ef2\1906.ef2" />
+    <Content Include="ef2\1907.ef2" />
+    <Content Include="ef2\1908.ef2" />
+    <Content Include="ef2\1909.ef2" />
+    <Content Include="ef2\1910.ef2" />
+    <Content Include="ef2\1911.ef2" />
+    <Content Include="ef2\1912.ef2" />
+    <Content Include="ef2\1913.ef2" />
+    <Content Include="ef2\1914.ef2" />
+    <Content Include="ef2\1915.ef2" />
+    <Content Include="ef2\1916.ef2" />
+    <Content Include="ef2\1917.ef2" />
+    <Content Include="ef2\1918.ef2" />
+    <Content Include="ef2\1919.ef2" />
+    <Content Include="ef2\1920.ef2" />
+    <Content Include="ef2\1921.ef2" />
+    <Content Include="ef2\1922.ef2" />
+    <Content Include="ef2\1923.ef2" />
+    <Content Include="ef2\1924.ef2" />
+    <Content Include="ef2\1925.ef2" />
+    <Content Include="ef2\1926.ef2" />
+    <Content Include="ef2\1927.ef2" />
+    <Content Include="ef2\1928.ef2" />
+    <Content Include="ef2\1929.ef2" />
+    <Content Include="ef2\1930.ef2" />
+    <Content Include="ef2\1931.ef2" />
+    <Content Include="ef2\1932.ef2" />
+    <Content Include="ef2\1933.ef2" />
+    <Content Include="ef2\1934.ef2" />
+    <Content Include="ef2\1935.ef2" />
+    <Content Include="ef2\1936.ef2" />
+    <Content Include="ef2\1937.ef2" />
+    <Content Include="ef2\1938.ef2" />
+    <Content Include="ef2\1939.ef2" />
+    <Content Include="ef2\1940.ef2" />
+    <Content Include="ef2\1941.ef2" />
+    <Content Include="ef2\1942.ef2" />
+    <Content Include="ef2\1943.ef2" />
+    <Content Include="ef2\1944.ef2" />
+    <Content Include="ef2\1945.ef2" />
+    <Content Include="ef2\1946.ef2" />
+    <Content Include="ef2\1947.ef2" />
+    <Content Include="ef2\1948.ef2" />
+    <Content Include="ef2\1949.ef2" />
+    <Content Include="ef2\1950.ef2" />
+    <Content Include="ef2\1951.ef2" />
+    <Content Include="ef2\1952.ef2" />
+    <Content Include="ef2\1953.ef2" />
+    <Content Include="ef2\1954.ef2" />
+    <Content Include="ef2\1955.ef2" />
+    <Content Include="ef2\1956.ef2" />
+    <Content Include="ef2\1957.ef2" />
+    <Content Include="ef2\1958.ef2" />
+    <Content Include="ef2\1959.ef2" />
+    <Content Include="ef2\1960.ef2" />
+    <Content Include="ef2\1961.ef2" />
+    <Content Include="ef2\1962.ef2" />
+    <Content Include="ef2\1963.ef2" />
+    <Content Include="ef2\1964.ef2" />
+    <Content Include="ef2\1965.ef2" />
+    <Content Include="ef2\1966.ef2" />
+    <Content Include="ef2\1967.ef2" />
+    <Content Include="ef2\1968.ef2" />
+    <Content Include="ef2\1969.ef2" />
+    <Content Include="ef2\1970.ef2" />
+    <Content Include="ef2\1971.ef2" />
+    <Content Include="ef2\1972.ef2" />
+    <Content Include="ef2\1973.ef2" />
+    <Content Include="ef2\1974.ef2" />
+    <Content Include="ef2\1975.ef2" />
+    <Content Include="ef2\1976.ef2" />
+    <Content Include="ef2\1977.ef2" />
+    <Content Include="ef2\1979.ef2" />
+    <Content Include="ef2\1980.ef2" />
+    <Content Include="ef2\1981.ef2" />
+    <Content Include="ef2\1982.ef2" />
+    <Content Include="ef2\1983.ef2" />
+    <Content Include="ef2\1984.ef2" />
+    <Content Include="ef2\1985.ef2" />
+    <Content Include="ef2\1986.ef2" />
+    <Content Include="ef2\1987.ef2" />
+    <Content Include="ef2\1988.ef2" />
+    <Content Include="ef2\1989.ef2" />
+    <Content Include="ef2\1990.ef2" />
+    <Content Include="ef2\1991.ef2" />
+    <Content Include="ef2\1992.ef2" />
+    <Content Include="ef2\1993.ef2" />
+    <Content Include="ef2\1994.ef2" />
+    <Content Include="ef2\1995.ef2" />
+    <Content Include="ef2\1996.ef2" />
+    <Content Include="ef2\1997.ef2" />
+    <Content Include="ef2\1998.ef2" />
+    <Content Include="ef2\1999.ef2" />
+    <Content Include="ef2\2000.ef2" />
+    <Content Include="ef2\2001.ef2" />
+    <Content Include="ef2\2002.ef2" />
+    <Content Include="ef2\2003.ef2" />
+    <Content Include="ef2\2004.ef2" />
+    <Content Include="ef2\2005.ef2" />
+    <Content Include="ef2\2006.ef2" />
+    <Content Include="ef2\2007.ef2" />
+    <Content Include="ef2\2008.ef2" />
+    <Content Include="ef2\2009.ef2" />
+    <Content Include="ef2\2010.ef2" />
+    <Content Include="ef2\2012.ef2" />
+    <Content Include="ef2\2013.ef2" />
+    <Content Include="ef2\2014.ef2" />
+    <Content Include="ef2\2015.ef2" />
+    <Content Include="ef2\2016.ef2" />
+    <Content Include="ef2\2017.ef2" />
+    <Content Include="ef2\2018.ef2" />
+    <Content Include="ef2\2019.ef2" />
+    <Content Include="ef2\2020.ef2" />
+    <Content Include="ef2\2021.ef2" />
+    <Content Include="ef2\2022.ef2" />
+    <Content Include="ef2\2023.ef2" />
+    <Content Include="ef2\2024.ef2" />
+    <Content Include="ef2\2025.ef2" />
+    <Content Include="ef2\2026.ef2" />
+    <Content Include="ef2\2027.ef2" />
+    <Content Include="ef2\2028.ef2" />
+    <Content Include="ef2\2029.ef2" />
+    <Content Include="ef2\2030.ef2" />
+    <Content Include="ef2\2031.ef2" />
+    <Content Include="ef2\2032.ef2" />
+    <Content Include="ef2\2033.ef2" />
+    <Content Include="ef2\2034.ef2" />
+    <Content Include="ef2\2035.ef2" />
+    <Content Include="ef2\2036.ef2" />
+    <Content Include="ef2\2037.ef2" />
+    <Content Include="ef2\2038.ef2" />
+    <Content Include="ef2\2039.ef2" />
+    <Content Include="ef2\2040.ef2" />
+    <Content Include="ef2\2041.ef2" />
+    <Content Include="ef2\2042.ef2" />
+    <Content Include="ef2\2043.ef2" />
+    <Content Include="ef2\2044.ef2" />
+    <Content Include="ef2\2045.ef2" />
+    <Content Include="ef2\2046.ef2" />
+    <Content Include="ef2\2047.ef2" />
+    <Content Include="ef2\2048.ef2" />
+    <Content Include="ef2\2049.ef2" />
+    <Content Include="ef2\2050.ef2" />
+    <Content Include="ef2\2051.ef2" />
+    <Content Include="ef2\2052.ef2" />
+    <Content Include="ef2\2053.ef2" />
+    <Content Include="ef2\2054.ef2" />
+    <Content Include="ef2\2055.ef2" />
+    <Content Include="ef2\2056.ef2" />
+    <Content Include="ef2\2057.ef2" />
+    <Content Include="ef2\2058.ef2" />
+    <Content Include="ef2\2059.ef2" />
+    <Content Include="ef2\2060.ef2" />
+    <Content Include="ef2\2061.ef2" />
+    <Content Include="ef2\2062.ef2" />
+    <Content Include="ef2\2063.ef2" />
+    <Content Include="ef2\2064.ef2" />
+    <Content Include="ef2\2065.ef2" />
+    <Content Include="ef2\2066.ef2" />
+    <Content Include="ef2\2067.ef2" />
+    <Content Include="ef2\2068.ef2" />
+    <Content Include="ef2\2069.ef2" />
+    <Content Include="ef2\2070.ef2" />
+    <Content Include="ef2\2071.ef2" />
+    <Content Include="ef2\2072.ef2" />
+    <Content Include="ef2\2073.ef2" />
+    <Content Include="ef2\2074.ef2" />
+    <Content Include="ef2\2075.ef2" />
+    <Content Include="ef2\2076.ef2" />
+    <Content Include="ef2\2077.ef2" />
+    <Content Include="ef2\2078.ef2" />
+    <Content Include="ef2\2079.ef2" />
+    <Content Include="ef2\2080.ef2" />
+    <Content Include="ef2\2081.ef2" />
+    <Content Include="ef2\2082.ef2" />
+    <Content Include="ef2\2083.ef2" />
+    <Content Include="ef2\2084.ef2" />
+    <Content Include="ef2\2085.ef2" />
+    <Content Include="ef2\2086.ef2" />
+    <Content Include="ef2\2087.ef2" />
+    <Content Include="ef2\2088.ef2" />
+    <Content Include="ef2\2089.ef2" />
+    <Content Include="ef2\2090.ef2" />
+    <Content Include="ef2\2091.ef2" />
+    <Content Include="ef2\2092.ef2" />
+    <Content Include="ef2\2093.ef2" />
+    <Content Include="ef2\2094.ef2" />
+    <Content Include="ef2\2095.ef2" />
+    <Content Include="ef2\2096.ef2" />
+    <Content Include="ef2\2097.ef2" />
+    <Content Include="ef2\2098.ef2" />
+    <Content Include="ef2\2099.ef2" />
+    <Content Include="ef2\2100.ef2" />
+    <None Include="Properties\AppManifest.xml" />
+    <None Include="Properties\WMAppManifest.xml" />
+    <Content Include="tz\tzall.dat" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="ApplicationIcon.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Background.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SplashScreenImage.jpg" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Phone.Controls\Phone.Controls.csproj">
+      <Project>{CD17660D-E7B5-48F8-9CB4-B57A5A12EE03}</Project>
+      <Name>Phone.Controls</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.$(TargetFrameworkProfile).Overrides.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\Microsoft\Silverlight for Phone\$(TargetFrameworkVersion)\Microsoft.Silverlight.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+  <ProjectExtensions />
+</Project>

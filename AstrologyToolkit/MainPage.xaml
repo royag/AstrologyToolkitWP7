@@ -1,0 +1,263 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="AstrologyToolkit.MainPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    mc:Ignorable="d" d:DesignWidth="480" d:DesignHeight="768"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    shell:SystemTray.IsVisible="True">
+
+    
+    
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <TextBlock x:Name="ChartInfo" Text="Info" Style="{StaticResource PhoneTextNormalStyle}" Width="800" MaxHeight="110">
+            <TextBlock.Clip>   
+                <RectangleGeometry Rect="0,0,480,110"/>   
+            </TextBlock.Clip>
+        </TextBlock>
+
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <Canvas Name="ChartCanvas" MinHeight="460" MinWidth="460" SizeChanged="ChartCanvas_SizeChanged" LayoutUpdated="ChartCanvas_LayoutUpdated" Loaded="ChartCanvas_Loaded">
+                <Ellipse MinHeight="460" MinWidth="460" Name="ZodiacOuter" Stroke="{StaticResource PhoneBorderBrush}" OpacityMask="#FF838383">
+                    <!--Ellipse.Fill>
+                        <RadialGradientBrush>
+                            <GradientStop Color="White" Offset="0" />
+                            <GradientStop Color="Black" Offset="1" />
+                            <GradientStop Color="#FF7F7F7F" Offset="0" />
+                        </RadialGradientBrush>
+                    </Ellipse.Fill-->
+                </Ellipse>
+                <Ellipse Stroke="{StaticResource PhoneBorderBrush}" MinHeight="380" MinWidth="380" Name="ZodiacInner"></Ellipse>
+
+
+                <Image Name="SignAries" Source="gfx/signs30/col_aries.png" Canvas.Left="196" Canvas.Top="114" />
+                <Image Name="SignTaurus" Source="gfx/signs30/col_taurus.png" Canvas.Left="196" Canvas.Top="114" />
+                <Image Name="SignGemini" Source="gfx/signs30/col_gemini.png" Canvas.Left="196" Canvas.Top="114" />
+                <Image Name="SignCancer" Source="gfx/signs30/col_cancer.png" Canvas.Left="196" Canvas.Top="114" />
+                <Image Name="SignLeo" Source="gfx/signs30/col_leo.png" Canvas.Left="196" Canvas.Top="114" />
+                <Image Name="SignVirgo" Source="gfx/signs30/col_virgo.png" Canvas.Left="196" Canvas.Top="114" />
+                <Image Name="SignLibra" Source="gfx/signs30/col_libra.png" Canvas.Left="196" Canvas.Top="114" />
+                <Image Name="SignScorpio" Source="gfx/signs30/col_scorpio.png" Canvas.Left="196" Canvas.Top="114" />
+                <Image Name="SignSaggitarius" Source="gfx/signs30/col_saggitarius.png" Canvas.Left="196" Canvas.Top="114" />
+                <Image Name="SignCapricorn" Source="gfx/signs30/col_capricorn.png" Canvas.Left="196" Canvas.Top="114" />
+                <Image Name="SignAquarius" Source="gfx/signs30/col_aquarius.png" Canvas.Left="196" Canvas.Top="114" />
+                <Image Name="SignPisces" Source="gfx/signs30/col_pisces.png" Canvas.Left="196" Canvas.Top="114" />
+
+                <!-- Region Planets -->
+                <Rectangle Name="PlanetSun" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/sun.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetMoon" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/moon.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetMercury" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/mercury.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetVenus" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/venus.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetMars" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/mars.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetJupiter" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/jupiter.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetSaturn" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/saturn.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetUranus" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/uranus.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetNeptune" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/neptune.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetPluto" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/pluto.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetNode" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/node.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetAsc" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/ascendant.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="PlanetMC" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/mc.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <!-- EndRegion Planets -->
+
+                <Rectangle Name="CompPlanetSun" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/sun.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetMoon" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/moon.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetMercury" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/mercury.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetVenus" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/venus.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetMars" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/mars.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetJupiter" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/jupiter.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetSaturn" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/saturn.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetUranus" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/uranus.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetNeptune" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/neptune.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetPluto" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/pluto.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetNode" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/node.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetAsc" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/ascendant.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <Rectangle Name="CompPlanetMC" Fill="{StaticResource PhoneForegroundBrush}" Height="25" Stroke="Black"  Width="25"  MouseEnter="Planet_MouseEnter">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/mc.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+
+                <Button Canvas.Left="337" Canvas.Top="520" Content="&gt;&gt;" Height="71" Name="buttonMore" Width="130" Click="buttonMore_Click" BorderThickness="0" Foreground="{StaticResource PhoneForegroundBrush}" FontWeight="ExtraBold" FontSize="26" Background="{StaticResource PhoneChromeBrush}"/>
+                <Button Canvas.Left="-7" Canvas.Top="520" Content="&lt;&lt;" Height="71" Name="buttonLess" Width="130" Click="buttonLess_Click" BorderThickness="0" BorderBrush="{StaticResource PhoneForegroundBrush}" Foreground="{StaticResource PhoneForegroundBrush}" FontWeight="ExtraBold" FontSize="26" Background="{StaticResource PhoneChromeBrush}"/>
+                <Button Canvas.Left="223" Canvas.Top="520" Content="&gt;" Height="71" Name="buttonMoreStep" Width="130" Click="buttonMoreStep_Click" BorderThickness="0" Foreground="{StaticResource PhoneForegroundBrush}" FontWeight="ExtraBold" FontSize="26" Background="{StaticResource PhoneChromeBrush}"/>
+                <Button Canvas.Left="107" Canvas.Top="520" Content="&lt;" Height="71" Name="buttonLessStep" Width="130" Click="buttonLessStep_Click" BorderThickness="0" Foreground="{StaticResource PhoneForegroundBrush}" FontWeight="ExtraBold" FontSize="26" Background="{StaticResource PhoneChromeBrush}"/>
+                <!--Image Height="30" HorizontalAlignment="Left" Canvas.Left="0" Canvas.Top="6" Name="PlanetInfoImage" Stretch="Fill" VerticalAlignment="Top" /-->
+
+                <Rectangle Name="PlanetInfoImage" Fill="{StaticResource PhoneForegroundBrush}" Height="30" Width="30" Stroke="Black" VerticalAlignment="Top" Canvas.Top="6" Canvas.Left="0">
+                    <Rectangle.OpacityMask>
+                        <ImageBrush Stretch="Fill" ImageSource="gfx/planets20w/mc.png"/>
+                    </Rectangle.OpacityMask>
+                </Rectangle>
+                <TextBlock Height="30" Name="textPlanetInfo" Text="TextBlock" Canvas.Left="6" Canvas.Top="6" Width="394" VerticalAlignment="Center" Foreground="{StaticResource PhoneForegroundBrush}" FontSize="22" FontWeight="Bold" />
+                <HyperlinkButton Canvas.Left="314" Canvas.Top="6" Content="More info..." Height="30" Name="moreInfoButton" Width="141" Click="moreInfoButton_Click" Foreground="{StaticResource PhoneForegroundBrush}" />
+            </Canvas>
+        </Grid>
+        <StackPanel Name="infoPanel" MinHeight="435" MinWidth="435" Margin="18,90,2,246" Grid.Row="1" Background="{StaticResource PhoneSemitransparentBrush}">
+            <Grid Name="aspectPanel" Margin="15,30,0,0">
+                <Grid.Resources>
+                    <DataTemplate x:Name="aspectListTemplate">
+                        <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="460">
+                            <TextBlock x:Name="aspDesc" Text="{Binding description}" Foreground="{Binding color}" MinWidth="300" />
+                            <TextBlock Text="{Binding pos}" Width="100" Visibility="{Binding posVisibility}"/>
+                            <TextBlock Text="{Binding orb}" Width="50" />
+                        </StackPanel>
+                    </DataTemplate>
+                    <!--Style x:Key="ListBoxItemStyle1" TargetType="ListBoxItem">
+                        <Setter Property="Background" Value="Transparent"/>
+                        <Setter Property="BorderThickness" Value="0"/>
+                        <Setter Property="BorderBrush" Value="Transparent"/>
+                        <Setter Property="Padding" Value="0"/>
+                        <Setter Property="HorizontalContentAlignment" Value="Left"/>
+                        <Setter Property="VerticalContentAlignment" Value="Top"/>
+                        <Setter Property="Template">
+                            <Setter.Value>
+                                <ControlTemplate TargetType="ListBoxItem">
+                                    <Border x:Name="LayoutRoot" BorderBrush="{TemplateBinding BorderBrush}" BorderThickness="{TemplateBinding BorderThickness}" Background="{TemplateBinding Background}" HorizontalAlignment="{TemplateBinding HorizontalAlignment}" VerticalAlignment="{TemplateBinding VerticalAlignment}">
+                                        <VisualStateManager.VisualStateGroups>
+                                            <VisualStateGroup x:Name="SelectionStates">
+                                                <VisualState x:Name="Unselected"/>
+                                                <VisualState x:Name="Selected">
+                                                    <Storyboard>
+                                                        <ColorAnimation Storyboard.TargetName="ContentContainer" 
+                                                            Storyboard.TargetProperty="(Background).(SolidColorBrush.Color)" To="Red" />
+                                                    </Storyboard>
+                                                </VisualState>
+                                            </VisualStateGroup>
+                                        </VisualStateManager.VisualStateGroups>
+                                        <ContentControl x:Name="ContentContainer" ContentTemplate="{TemplateBinding ContentTemplate}" Content="{TemplateBinding Content}" Foreground="{TemplateBinding Foreground}" HorizontalContentAlignment="{TemplateBinding HorizontalContentAlignment}" Margin="{TemplateBinding Padding}" VerticalContentAlignment="{TemplateBinding VerticalContentAlignment}"/>
+                                    </Border>
+                                </ControlTemplate>
+                            </Setter.Value>
+                        </Setter>
+                    </Style-->
+                </Grid.Resources>
+                <ListBox MinHeight="295" MaxHeight="295" 
+                         HorizontalAlignment="Left" Name="aspectListBox" 
+                         VerticalAlignment="Center" FontSize="24" Margin="1,0,0,1" 
+                         SelectionChanged="aspectListBox_SelectionChanged" />
+                         <!--ItemContainerStyle="{StaticResource ListBoxItemStyle1}"-->
+                    
+            </Grid>
+            <TextBlock Text="Tap one of the lines above to enable search..." TextAlignment="Center" Foreground="{StaticResource PhoneForegroundBrush}" Name="searchInfo" FontWeight="Bold" />
+            <StackPanel Orientation="Horizontal" VerticalAlignment="Center" Width="460">
+                <Button Content="Search the Web" Margin="0,0,0,1" Name="webSearchButton" Click="webSearchButton_Click" BorderThickness="2" FontSize="24"></Button>
+                <Button Content="Search my Charts" Margin="0,0,0,1" Name="chartSearchButton" Click="chartSearchButton_Click" BorderThickness="2" FontSize="24"></Button>
+            </StackPanel>
+        </StackPanel>
+    </Grid>
+</phone:PhoneApplicationPage>

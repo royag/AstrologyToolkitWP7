@@ -1,0 +1,57 @@
+﻿<phone:PhoneApplicationPage 
+    x:Class="AstrologyToolkit.ChartInputDataPage"
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:phone="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone"
+    xmlns:shell="clr-namespace:Microsoft.Phone.Shell;assembly=Microsoft.Phone"
+    xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+    xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:toolkit="clr-namespace:Microsoft.Phone.Controls;assembly=Microsoft.Phone.Controls.Toolkit"
+    FontFamily="{StaticResource PhoneFontFamilyNormal}"
+    FontSize="{StaticResource PhoneFontSizeNormal}"
+    Foreground="{StaticResource PhoneForegroundBrush}"
+    SupportedOrientations="Portrait" Orientation="Portrait"
+    mc:Ignorable="d" d:DesignHeight="768" d:DesignWidth="480"
+    shell:SystemTray.IsVisible="True">
+
+    <!--LayoutRoot is the root grid where all page content is placed-->
+    <Grid x:Name="LayoutRoot" Background="Transparent">
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <!--TitlePanel contains the name of the application and page title-->
+        <StackPanel x:Name="TitlePanel" Grid.Row="0" Margin="12,17,0,28">
+            <TextBlock x:Name="ApplicationTitle" Text="ASTROLOGY TOOLKIT" Style="{StaticResource PhoneTextNormalStyle}"/>
+            <TextBlock x:Name="PageTitle" Text="edit chart" Margin="9,-7,0,0" Style="{StaticResource PhoneTextTitle1Style}"/>
+        </StackPanel>
+
+        <!--ContentPanel - place additional content here-->
+        <Grid x:Name="ContentPanel" Grid.Row="1" Margin="12,0,12,0">
+            <toolkit:DatePicker x:Name="MyDatePicker" ValueChanged="DatePicker_ValueChanged" Margin="0,310,6,-300" />
+            <toolkit:TimePicker x:Name="MyTimePicker" Margin="0,400,6,-406" ValueChanged="MyTimePicker_ValueChanged" />
+            <Button Content="Country" Height="72" HorizontalAlignment="Left" Margin="0,40,0,0" Name="countrySelect" VerticalAlignment="Top" Width="450" Click="countrySelect_Click" Background="LightGray" Foreground="Black" BorderThickness="0" HorizontalContentAlignment="Left" FontSize="22"></Button>
+            <Button Content="" Height="72" HorizontalAlignment="Left" Margin="0,130,0,0" Name="placeSelect" VerticalAlignment="Top" Width="450" Click="placeSelect_Click" Foreground="Black" Background="LightGray" BorderThickness="0" HorizontalContentAlignment="Left" FontSize="22" />
+            <Button Content="" Height="72" HorizontalAlignment="Left" Margin="0,220,0,0" Name="timeZoneSelect" VerticalAlignment="Top" Width="450" Click="timeZoneSelect_Click" Background="LightGray" Foreground="Black" BorderThickness="0" HorizontalContentAlignment="Left" FontSize="22" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="10,20,0,0" Name="textBlock1" Text="Country" VerticalAlignment="Top" Width="111" Foreground="{StaticResource PhoneForegroundBrush}" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="10,110,0,0" Name="textBlock2" Text="Place" VerticalAlignment="Top" Foreground="{StaticResource PhoneForegroundBrush}" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="10,200,0,0" Name="textBlock3" Text="Time Zone" VerticalAlignment="Top" Foreground="{StaticResource PhoneForegroundBrush}" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="10,290,0,0" Name="textBlock4" Text="Date of Birth" VerticalAlignment="Top" Foreground="{StaticResource PhoneForegroundBrush}" />
+            <TextBlock Height="30" HorizontalAlignment="Left" Margin="10,380,0,0" Name="textBlock5" Text="Time of Birth" VerticalAlignment="Top" Foreground="{StaticResource PhoneForegroundBrush}" />
+        </Grid>
+    </Grid>
+ 
+    <!--Sample code showing usage of ApplicationBar-->
+    <!--<phone:PhoneApplicationPage.ApplicationBar>
+        <shell:ApplicationBar IsVisible="True" IsMenuEnabled="True">
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button1.png" Text="Button 1"/>
+            <shell:ApplicationBarIconButton IconUri="/Images/appbar_button2.png" Text="Button 2"/>
+            <shell:ApplicationBar.MenuItems>
+                <shell:ApplicationBarMenuItem Text="MenuItem 1"/>
+                <shell:ApplicationBarMenuItem Text="MenuItem 2"/>
+            </shell:ApplicationBar.MenuItems>
+        </shell:ApplicationBar>
+    </phone:PhoneApplicationPage.ApplicationBar>-->
+
+</phone:PhoneApplicationPage>

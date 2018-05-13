@@ -1,0 +1,40 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 11.00
+# Visual Studio 2010 Express for Windows Phone
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AstrologyToolkit", "AstrologyToolkit\AstrologyToolkit.csproj", "{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Phone.Controls", "Phone.Controls\Phone.Controls.csproj", "{CD17660D-E7B5-48F8-9CB4-B57A5A12EE03}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug Trial|Any CPU = Debug Trial|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		DebugTrial|Any CPU = DebugTrial|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.Debug Trial|Any CPU.ActiveCfg = Debug Trial|Any CPU
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.Debug Trial|Any CPU.Build.0 = Debug Trial|Any CPU
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.Debug Trial|Any CPU.Deploy.0 = Debug Trial|Any CPU
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.Debug|Any CPU.Deploy.0 = Debug|Any CPU
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.DebugTrial|Any CPU.ActiveCfg = DebugTrial|Any CPU
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.DebugTrial|Any CPU.Build.0 = DebugTrial|Any CPU
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.DebugTrial|Any CPU.Deploy.0 = DebugTrial|Any CPU
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{09CF05A1-4301-4D67-ADA1-ADD794DAD7F0}.Release|Any CPU.Deploy.0 = Release|Any CPU
+		{CD17660D-E7B5-48F8-9CB4-B57A5A12EE03}.Debug Trial|Any CPU.ActiveCfg = Debug Trial|Any CPU
+		{CD17660D-E7B5-48F8-9CB4-B57A5A12EE03}.Debug Trial|Any CPU.Build.0 = Debug Trial|Any CPU
+		{CD17660D-E7B5-48F8-9CB4-B57A5A12EE03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CD17660D-E7B5-48F8-9CB4-B57A5A12EE03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CD17660D-E7B5-48F8-9CB4-B57A5A12EE03}.DebugTrial|Any CPU.ActiveCfg = DebugTrial|Any CPU
+		{CD17660D-E7B5-48F8-9CB4-B57A5A12EE03}.DebugTrial|Any CPU.Build.0 = DebugTrial|Any CPU
+		{CD17660D-E7B5-48F8-9CB4-B57A5A12EE03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CD17660D-E7B5-48F8-9CB4-B57A5A12EE03}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+EndGlobal
